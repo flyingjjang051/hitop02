@@ -11,6 +11,8 @@ const corsOption = {
 };
 
 app.set("view engine", "ejs");
+app.set("port", process.env.PORT || 8099);
+const PORT = app.get("port");
 
 app.use(express.static(path.join(__dirname, "/public"))); // 정적파일 css,js,images 등등을 서비스 해주는 경로 잡아주기.....
 app.use(express.json()); // json을 리턴할려면
@@ -70,6 +72,6 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   res.status(500).render("error", { msg: "An unknown error occurred." });
 });
-app.listen(8099, () => {
-  console.log(`8099에서 서버 대기중`);
+app.listen(PORT, () => {
+  console.log(`${PORT}에서 서버 대기중`);
 });
