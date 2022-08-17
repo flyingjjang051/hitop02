@@ -1,7 +1,7 @@
 <%- include("./include/header") %>
 <div class="subVisual" id="subVisual01">
   <div class="titleBox">
-    <h2 class="subTitle">Company</h2>
+    <h2 class="subTitle"><%= mainTitle %></h2>
     <p>우리는, 도시경관사업의 최고기업이 되고 시장을 선도한다!</p>
   </div>
   <nav id="lnb">
@@ -19,7 +19,7 @@
   </nav>
 </div>
 <div class="subContents">
-  <h3 class="contentsTitle">회사소개</h3>
+  <h3 class="contentsTitle"><%= title %></h3>
   <div class="contents" id="introduce">
     <div class="container">
       <div class="summaryBox">
@@ -68,4 +68,9 @@
     </div>
   </div>
 </div>
+<script>
+  $.ajax({ url: "http://127.0.0.1:8099/list" }).done(function (response) {
+    console.log(response);
+  });
+</script>
 <%- include("./include/footer") %>
